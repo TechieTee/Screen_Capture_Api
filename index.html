@@ -1,0 +1,56 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+<link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+<main id="html-content-holder">
+        
+          <h1>Screen Capture Application Using Screen Capture Api</h1>
+        
+          <button id="btn-Preview-Image" onclick="show()" class="btn btn_blue">Take ScreenShot</button> 
+          <a id="btn-Convert-Html2Image" class="btn btn_red" href="#" style="text-decoration: none;">Download as image</a>
+         
+    </main>
+    <h3>Preview :</h3>
+    <div id="previewImage" class="view">
+    </div>
+
+
+<script>
+    one = document.getElementById("btn-Preview-Image");
+    
+    function show() {
+  document.getElementById("btn-Convert-Html2Image").style.display = "block";
+  document.getElementById("btn-Convert-Html2Image").style.width = "130px";
+  
+}
+
+$(document).ready(function(){
+
+	
+var element = $("#html-content-holder"); // global variable
+var getCanvas; // global variable
+ 
+    $("#btn-Preview-Image").on('click', function () {
+         html2canvas(element, {
+         onrendered: function (canvas) {
+                $("#previewImage").append(canvas);
+                getCanvas = canvas;
+             }
+         });
+    });
+
+	$("#btn-Convert-Html2Image").on('click', function () {
+    var imgageData = getCanvas.toDataURL("image/png");
+    // Now browser starts downloading it instead of just showing it
+    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+    $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+	});
+
+});
+
+</script>
+</body>
+</html>

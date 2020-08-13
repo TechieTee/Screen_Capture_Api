@@ -1,0 +1,43 @@
+body{
+    line-height: 2;
+    color: #5CC1CF;
+    font-family: cursive;
+   
+}
+
+h1{
+    text-align: center;
+}
+
+main{
+    height: 150px;
+    width: 80%;
+    margin: auto;
+    
+}
+
+.btn{
+    padding: 10px 10px  10px 10px ;
+    margin-left: 10%;
+    margin-top: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    color: #fcfcfc;
+    font-size: 15px;
+}
+
+.btn_blue{
+    background-color: midnightblue;
+}
+
+.btn_red{
+    background-color: maroon;
+    display: none;
+}
+
+.view{
+    height: 100%;
+    width: 100%;
+}
+
